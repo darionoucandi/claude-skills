@@ -115,6 +115,15 @@ function validateJs(file, code) {
     );
   }
 
+  if (/\[style[*^$~|]?=/.test(code) && !allow.has('inline-style-selector')) {
+    push(
+      warnings,
+      file,
+      'js/inline-style-selector',
+      'Avoid anchoring to inline-style attributes (e.g. p[style*="font-size: 10px"]) — they break on theme restyles. Use a stable class + combinator, [data-*], aria-label, or text match. Or: // @ablyft-expert-allow inline-style-selector'
+    );
+  }
+
   if (/\.innerText/.test(code) && !allow.has('inner-text')) {
     push(
       warnings,
@@ -174,6 +183,16 @@ function validateJs(file, code) {
 
 function validateCss(file, code) {
   const stripped = stripComments(code);
+  const allow = getAllowList(code);
+
+  if (/\[style[*^$~|]?=/.test(stripped) && !allow.has('inline-style-selector')) {
+    push(
+      warnings,
+      file,
+      'css/inline-style-selector',
+      'Avoid anchoring to inline-style attributes (e.g. [style*="font-size: 10px"]) — they break on theme restyles. Use a stable class + combinator, [data-*], or aria-label. Or: /* @ablyft-expert-allow inline-style-selector */'
+    );
+  }
 
   if (/\.section-template--/.test(stripped)) {
     push(

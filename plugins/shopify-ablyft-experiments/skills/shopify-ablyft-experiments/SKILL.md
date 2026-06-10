@@ -355,6 +355,7 @@ If running Node isn't possible (e.g. plain chat), review the code against the ta
 | `.section-template--...` class selector | IDs use `#shopify-section-template--...` |
 | No `try/finally` with anti-flicker | Always `revealPage()` in `finally` |
 | Globals leaking | IIFE + `'use strict'` |
+| Inline-style anchor `p[style*="font-size: 10px"]` | Stable class + combinator (`.information__description + p`), `[data-*]`, `aria-label`, or text match |
 
 ---
 

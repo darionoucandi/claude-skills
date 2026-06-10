@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "claude-skills",
+  "description": "Shared Claude Code skills for the team.",
+  "version": "1.0.0",
+  "owner": {
+    "name": "darionoucandi"
+  },
+  "metadata": {
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "shopify-ablyft-experiments",
+      "source": "shopify-ablyft-experiments",
+      "description": "Build, review, and QA ABlyft A/B test variation code (JS + CSS) for Shopify Online Store 2.0 storefronts.",
+      "version": "1.0.0",
+      "category": "development",
+      "tags": ["shopify", "ablyft", "ab-testing", "variation-code"]
+    }
+  ]
+}
